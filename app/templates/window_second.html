@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+<!--===============================================================================================-->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/window_second.css') }}" />
+<!--===============================================================================================-->
+
+
+
+
+
+
+
+
+
+</head>
+
+<body >
+
+     <div class="img1"  > <img src="{{ url_for('static',filename='css/iaa.jpg') }}" style = 'display:flex;   width : 200px; height: 200px; margin:10px auto; border-radius: 50%; '> </div>
+
+    <h3   style = ' text-align:center; color: #f0f8ff; font-size: 35px; margin:10px auto; '>  Bienvenue sur la plateforme de l'IA </h3>
+    <h3   style = ' text-align:center; color: #f0f8ff; font-size: 20px; margin:10px auto; '>  Modèle de classification multiclasse  </h3>
+    <h3 style = ' text-align:center; color: #f0f8ff; text-decoration: underline;  font-size: 25px; margin:-5px auto; margin:0px auto;'> Résultats du modèle </h3>
+
+
+    <div  style = 'display:flex;     width : 20%; height: 20%;  margin:30px auto;    ' onclick="window.location.href='{{ url_for('download_result') }}'" >
+    <div class="container-fluid" >
+	    <div class="row">
+		    <div id="ms-container">
+			    <label for="ms-download">
+				    <div class="ms-content">
+					    <div class="ms-content-inside">
+						    <input type="checkbox" id="ms-download" />
+						    <div class="ms-line-down-container">
+							    <div class="ms-line-down"></div>
+						    </div>
+						    <div class="ms-line-point"></div>
+					    </div>
+				    </div>
+			    </label>
+		    </div>
+	    </div>
+    </div>
+    </div>
+
+
+    <div style = ' display:flex;    margin:300px auto; '  >
+    <button class="custom-btn btn-11" style = '   width : 10%; height: 5%;  margin:0px auto; color: #2980b9 ;' onclick="window.location.href='{{ url_for('acceuil') }}'" >Accueil</button>
+    </div>
+
+
+</body>
+
+<head>
+ <script src="upload.js"></script>
+</head>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+    <!--===============================================================================================-->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/window_principale.css') }}" />
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<!--===============================================================================================-->
+
+
+
+
+</head>
+<body  >
+
+  <div class="img1"  > <img src="{{ url_for('static',filename='css/iaa.jpg') }}" style = 'display:flex;   width : 200px; height: 200px; margin:10px auto; border-radius: 50%; '> </div>
+
+    <h3   style = '   text-align:center; color: #f0f8ff; font-size: 30px; margin:10px auto;'>  Bienvenue sur la plateforme de l'IA </h3>
+    <h3   style = ' text-align:center; color: #f0f8ff; font-size: 20px; margin:10px auto;'>  Modèle de classification multiclasse </h3>
+
+    <form  id="file-upload-form"  action="{{ url_for('uploader') }}" method = "POST" enctype = "multipart/form-data" style = ' margin:100px auto; ' >
+        <section class="input-content" style = '    width : 50%; height: 60%;  margin:0px auto;  background-color: transparent; border: dashed red' >
+            <!-- Upload  -->
+            <div class="uploader"  style = '   margin:-30px auto;  width : 70%; height: 5%;   '>
+
+            <h3 style = '   text-align:center; color: #f0f8ff; text-decoration: underline; margin:0px auto; ' >Téléchargement des documents </h3>
+            <p class="lead" style = ' text-align:center ; color: #f0f8ff; font-size: 13px; '>Fichier excel uniquement accepté </p>
+
+            <h3 style = ' text-align:center ; color: #f0f8ff; font-size: 17px;' >Vous pouvez télécharger un seul document </h3>
+
+            <input id="file_1" type="file" name="file_1"  />
+
+            <label for="file_1" id="file-drag">
+            <img id="file-image" src="#" alt="Preview" class="hidden">
+            <div id="start">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                <div>Sélectionnez un fichier ou faites le glisser ici</div>
+            <div id="notimage" class="hidden">Sélectionner un fichier</div>
+            <span id="file-upload-btn" class="btn btn-primary">Sélectionner un fichier</span>
+            </div>
+            <div id="response" class="hidden">
+                <div id="messages"></div>
+                <progress class="progress" id="file-progress" value="0">
+                <span>0</span>%
+                </progress>
+            </div>
+            </label>
+
+        <input type="submit" value="Analyser" onclick="$('#loading').show();" style = '  display:flex;   width : 40%; height: 20%; margin:0px auto; ' />
+        </div>
+        <div id="loading" class="loading_gif" style = 'position: absolute; top:50%; margin-left: auto; margin-right: auto; left: 0; right: 0; text-align: center; display:none; border-radius: 30px; '><center>  <img src="{{ url_for('static', filename='css/chargement1.gif') }}" style = 'width : 200px; height: 200px; border-radius: 30px; ' alt="" />&nbsp; </center> </div>
+
+        </section>
+    </form><!-- container -->
+
+
+
+ <script  src="{{url_for('static', filename='upload.js')}}"></script>
+
+</body>
+</html>
