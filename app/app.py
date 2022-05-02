@@ -41,7 +41,8 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 # Path to uploader folder
-path = os.path.join(app.config['UPLOAD_FOLDER']
+path = app.config['UPLOAD_FOLDER']
+
 
 def process_date(x):
     """
@@ -224,19 +225,19 @@ def page_acceuil():
 @app.route("/uploader", methods=["POST", "GET"])
 def uploader():
 
-
     if request.method == "POST":
 
-
-        # Get the file 
+        # Get the file
         file = request.files["file_1"]
+
         if file.filename != "":
 
-	    # Save it in uploader folder
+	        # Save it in uploader folder
             file.save(os.path.join(path, "csv_file.csv"))
 
-	    # Read it 
+	        # Read it
             csv_file = pd.read_csv(os.path.join(path, "csv_file.csv"))
+
 
             # Get the id column before processing df_test
             df_id = csv_file["id"]
@@ -249,7 +250,7 @@ def uploader():
             rdf = pickle.load(open("rdf_best.pkl", 'rb'))
 
             # Predicted probabilities for each sample
-            predicted_proba = xgb.predict_proba(df_test)
+            predicted_proba = rdf.predict_proba(df_test)
 
             # Create the output dataframess
             df_result = pd.DataFrame(predicted_proba, columns=["0", "1", "2", "3"])
@@ -258,8 +259,6 @@ def uploader():
             df_result = pd.concat([df_id, df_result], axis=1)
 
             df_result.to_csv(os.path.join(path, "df_result.csv"))
-
-        print("---------------- ", file.filename)
 
     # time.sleep(4)
     return render_template("window_second.html")
